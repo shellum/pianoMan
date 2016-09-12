@@ -1,0 +1,24 @@
+.logo {
+  width: 30px;
+}
+
+#app {
+  width: 200px;
+  margin: auto;
+}
+
+#score,#answer {
+  font-size: 20pt;
+  color: #444;
+}
+
+#img {
+  width: 100px;
+  margin: auto;
+}
+
+#bar {
+  width: 100px;
+  background-color: purple;
+  height: 10px;
+}
