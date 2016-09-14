@@ -3,8 +3,9 @@
 var ReactDOM = require('react-dom');
 var React = require('react');
 var Cookies = require('./common/cookies')
-$ = jQuery = require('jquery');
+var $ = require('jquery');
 var update = require('react-addons-update');
+//require('../images/' + /^.*$/);
 
 var Note = React.createClass({
   constants: {

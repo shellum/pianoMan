@@ -1,7 +1,9 @@
-$ = jQuery = require('jquery');
+var $ = require('jquery');
 var ReactDOM = require('react-dom');
 var React = require('react');
 var Note = require('./components/note');
+//require('./css/' + /^.*$/);
+//require('./html/' + /^.*html$/);
 
 var App = React.createClass({
   render: function() {
