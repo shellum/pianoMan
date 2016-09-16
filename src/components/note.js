@@ -2,7 +2,8 @@
 
 var ReactDOM = require('react-dom');
 var React = require('react');
-var Cookies = require('./common/cookies')
+var Cookies = require('./common/cookies');
+var Utils = require('./common/utils');
 var $ = require('jquery');
 var update = require('react-addons-update');
 //require('../images/' + /^.*$/);
@@ -73,11 +74,7 @@ var Note = React.createClass({
     }
   },
   render: function() {
-    var suffix = Math.floor(Math.random() * 100 % 2);
-    if (suffix == '1' && (this.state.note=='a' || this.state.note=='b'))
-    {
-      suffix = '0';
-    }
+    var suffix = Utils.getSuffix(this.state.note)
     var scoreText = this.state.timeLeft > 0 ? 'Score: ' : 'Final Score: ';
     return (
       <div>
