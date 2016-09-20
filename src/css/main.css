@@ -2,27 +2,98 @@
   font-family: 'Roboto', sans-serif;
 }
 
+#app {
+  border: #58b957 2px solid;
+  margin: auto;
+  width: 400px;
+  height: 400px;
+}
+
+#titleBar {
+  background-color: #58b957;
+  color: white;
+}
+
 .logo {
   width: 30px;
 }
 
-#app {
-  width: 200px;
+#title {
+  margin-left: 5px;
+}
+
+#highScore {
+  float: right;
+  margin-top: -30px;
+  margin-right: 5px;
+}
+
+.key:hover {
+    background-color: lightblue;
+}
+
+#start-game-button {
   margin: auto;
+  display:block;
+}
+
+.key {
+  border: 1px solid black;
+  display: inline;
+  float: left;
+  width: 25px;
+  height: 100px;
+}
+.blackKey {
+  border: 1px solid black;
+  background-color: black;
+  width: 12px;
+  height: 50px;
+  position: relative;
+}
+
+.cSharp {
+  left: 17px;
+}
+.dSharp {
+  top: -50px;
+  left: 43px;
+}
+.fSharp {
+  top: -100px;
+  left: 93px;
+}
+.gSharp {
+  top: -150px;
+  left: 118px;
+}
+.aSharp {
+  top: -200px;
+  left: 142px;
+}
+
+#piano {
+    height: 100px;
+    width: 180px;
+    margin: auto;
 }
 
 #score,#answer {
   font-size: 20pt;
   color: #444;
+  width: 180px;
+  margin: auto;
 }
 
 #img {
   width: 100px;
+  display: block;
   margin: auto;
 }
 
 #bar {
   width: 100px;
+  margin: auto;
   background-color: purple;
   height: 10px;
 }

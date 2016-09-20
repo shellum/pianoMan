@@ -31,7 +31,7 @@ module.exports = {
       {
         test: /\.css$/,
         include: cssSrcDir,
-        loader: 'file?name='+cssDestDir+'[name].[ext]',
+        loader: 'style-loader!css-loader',
       },
       {
         test: /\.html$/,
@@ -43,8 +43,7 @@ module.exports = {
   plugins: [
     new copyWebpackPlugin([
       {from: 'src/images', to: 'images'},
-      {from: 'src/html'},
-      {from: 'src/css', to: 'css'},
+      {from: 'src/html'}
     ])
   ]
 };

@@ -6,18 +6,20 @@ var Cookies = require('./common/cookies');
 var Utils = require('./common/utils');
 var $ = require('jquery');
 var update = require('react-addons-update');
+var Piano = require('./piano');
 //require('../images/' + /^.*$/);
 
 var Note = React.createClass({
   constants: {
-    delay: 30,
+    delay: 200,
     timeLeft: 100,
     answerFadeInDelay: 100,
     answerFadeOutDelay: 1000
   },
   getInitialState: function() {
+    this.props.bus.add('tryAnswer', this.handleClick);
     var highScore = Cookies.getCookieValue('highScore') || 0;
-    return {note:'a',score:0,timeLeft:this.constants.timeLeft,highScore:highScore};
+    return {note:'a',score:0,timeLeft:0,highScore:highScore};
   },
   showTemporaryAnswer: function() {
     $('#answer').off();
@@ -48,8 +50,9 @@ var Note = React.createClass({
     $('#bar').hide();
   },
   startGame: function() {
-    this.setState(update(this.state,{timeLeft: {$set: this.constants.timeLeft}}));
-    this.setState(update(this.state,{score: {$set: 0}}));
+    var newState = (update(this.state,{timeLeft: {$set: this.constants.timeLeft}}));
+    var anotherNewState = (update(newState,{score: {$set: 0}}));
+    this.state = anotherNewState;
     window.addEventListener("keydown", this.handleKeyDown, false);
     $('#answer').fadeOut(1);
     $('#start-game-button').hide();
@@ -59,7 +62,12 @@ var Note = React.createClass({
     setTimeout(this.decrementTimer,this.constants.delay);
   },
   handleKeyDown: function(event) {
-    if (event.key === this.state.note)
+    this.handleClick(event.key)
+  },
+  handleClick: function(key) {
+    if (this.state.timeLeft <= 0)
+      return;
+    if (key === this.state.note)
     {
       $('#answer').css('color','blue');
       $('#answer').text('Great');
@@ -78,8 +86,12 @@ var Note = React.createClass({
     var scoreText = this.state.timeLeft > 0 ? 'Score: ' : 'Final Score: ';
     return (
       <div>
-        <p id='highScore'>High Score: {this.state.highScore}</p>
+        <div id="titleBar">
+          <p id='title'>PianoMan</p>
+          <p id='highScore'>High Score: {this.state.highScore}</p>
+        </div>
         <img id='img' contentEditable src={'images/' + this.state.note + suffix + '.png'}/>
+        <Piano onCall={this.props.bus.call}/>
         <p id='score'>{scoreText}{this.state.score}</p>
         <div id='bar'></div>
         <button id='start-game-button' className='btn btn-success' onClick={this.startGame}>Start Game</button>
