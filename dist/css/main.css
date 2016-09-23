@@ -1,0 +1,63 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.logo {
+  width: 30px;
+}
+
+.key {
+  border: 1px solid black;
+  display: inline;
+  float: left;
+  width: 25px;
+  height: 100px;
+}
+.blackKey {
+  border: 1px solid black;
+  background-color: black;
+  width: 12px;
+  height: 50px;
+  position: relative;
+}
+
+.cSharp {
+  left: 17px;
+}
+.dSharp {
+  top: -50px;
+  left: 43px;
+}
+.fSharp {
+  top: -100px;
+  left: 93px;
+}
+.gSharp {
+  top: -150px;
+  left: 118px;
+}
+.aSharp {
+  top: -200px;
+  left: 142px;
+}
+
+#app {
+  width: 200px;
+  margin: auto;
+}
+
+#score,#answer {
+  font-size: 20pt;
+  color: #444;
+}
+
+#img {
+  width: 100px;
+  margin: auto;
+}
+
+#bar {
+  width: 100px;
+  background-color: purple;
+  height: 10px;
+}
