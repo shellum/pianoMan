@@ -7,11 +7,10 @@ var Utils = require('./common/utils');
 var $ = require('jquery');
 var update = require('react-addons-update');
 var Piano = require('./piano');
-//require('../images/' + /^.*$/);
 
 var Note = React.createClass({
   constants: {
-    delay: 200,
+    delay: 300,
     timeLeft: 100,
     answerFadeInDelay: 100,
     answerFadeOutDelay: 1000

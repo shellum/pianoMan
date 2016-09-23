@@ -7,9 +7,6 @@ var Bus = require('./components/common/bus');
 var BusInstance = new Bus();
 require('./css/main.css');
 
-//require('./css/' + /^.*$/);
-//require('./html/' + /^.*html$/);
-
 var App = React.createClass({
   render: function() {
     return (
